@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EA annuncia lo stop ai server: addio ad Apex Legends | GamerInsider</title>
+    <meta name="description" content="EA e Respawn annunciano la chiusura dei server. Tutti i dettagli sullo stop al servizio.">
+    <title>UFFICIALE: Apex Legends chiude i battenti a Febbraio | GamerInsider</title>
     <style>
         :root {
             --primary: #ff0055;
@@ -11,29 +12,37 @@
             --card-bg: #1e1e1e;
             --text: #e0e0e0;
             --text-muted: #a0a0a0;
+            --twitter: #1da1f2;
+            --facebook: #1877f2;
+            --whatsapp: #25d366;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        /* Top Bar */
+        .top-bar { background: #000; padding: 5px 0; font-size: 0.8rem; text-align: center; color: #666; }
 
         /* Header */
         header {
-            background-color: #000;
+            background-color: #1a1a1a;
             border-bottom: 3px solid var(--primary);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -41,255 +50,288 @@
             padding: 0 20px;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
+        .logo { font-size: 1.8rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: -1px; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--primary); }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-
-        nav a:hover { color: var(--primary); }
+        .user-icon { width: 35px; height: 35px; background: #333; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
 
         /* Layout */
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
+            max-width: 1100px;
+            margin: 30px auto;
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 2.5fr 1fr;
             gap: 40px;
             padding: 0 20px;
         }
 
-        /* Main Article */
-        article h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
+        /* Article */
+        .breadcrumbs { font-size: 0.8rem; color: var(--primary); margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
+        
+        article h1 { font-size: 2.6rem; line-height: 1.1; margin-bottom: 15px; letter-spacing: -0.5px; }
+        
+        .subtitle { font-size: 1.3rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 20px; font-weight: 300; }
 
-        .meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+        .author-block {
             display: flex;
-            justify-content: space-between;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(45deg, #2b2b2b, #4a1a1a);
-            display: flex;
-            justify-content: center;
             align-items: center;
+            gap: 15px;
             margin-bottom: 25px;
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+        }
+
+        .author-img { width: 50px; height: 50px; border-radius: 50%; background: #444; object-fit: cover; }
+        .author-info div:first-child { font-weight: bold; color: #fff; }
+        .author-info div:last-child { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Featured Image Area */
+        .featured-image-container { margin-bottom: 30px; }
+        
+        .panic-box {
+            background-color: #2a0a0a;
+            color: #ff4444;
+            border: 1px solid #cc0000;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: pulse 2s infinite;
         }
         
-        /* Fake Image Text */
-        .hero-image::after {
-            content: "APEX LEGENDS: SERVER OFFLINE";
-            color: rgba(255,255,255,0.1);
-            font-size: 3rem;
-            font-weight: bold;
-            position: absolute;
-            transform: rotate(-5deg);
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(204, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0); }
         }
 
-        .breaking-tag {
-            background-color: var(--primary);
-            color: white;
-            padding: 5px 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
+        /* Content */
+        .content p { font-size: 1.15rem; margin-bottom: 25px; color: #d1d1d1; }
+        .content strong { color: #fff; }
 
-        .content p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
+        .share-bar { display: flex; gap: 10px; margin: 30px 0; }
+        .share-btn { padding: 10px 20px; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; border: none; font-size: 0.9rem; flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .bg-tw { background: var(--twitter); }
+        .bg-fb { background: var(--facebook); }
+        .bg-wa { background: var(--whatsapp); }
 
-        .highlight-box {
-            background-color: #2a0a12;
-            border-left: 4px solid var(--primary);
+        .update-box {
+            background: rgba(255, 0, 85, 0.1);
+            border: 1px solid var(--primary);
             padding: 20px;
+            border-radius: 8px;
             margin: 30px 0;
         }
+        .update-box h4 { margin-top: 0; color: var(--primary); text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .update-box h4::before { content: '🔴'; }
 
-        .highlight-box h3 { margin-top: 0; color: var(--primary); }
+        /* Sidebar & Ads */
+        .trending-list { list-style: none; padding: 0; }
+        .trending-list li { margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .trending-list .number { color: var(--text-muted); font-size: 1.5rem; font-weight: 900; margin-right: 10px; font-style: italic; }
+        .trending-list a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .trending-list a:hover { color: var(--primary); }
 
-        /* Sidebar */
-        .sidebar h3 {
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
+        /* Comments Fake */
+        .comments-section { margin-top: 50px; border-top: 2px solid #333; padding-top: 30px; }
+        .comments-header { display: flex; gap: 15px; align-items: center; margin-bottom: 30px; }
+        .comment { display: flex; gap: 15px; margin-bottom: 25px; }
+        .avatar { width: 40px; height: 40px; background: #444; border-radius: 4px; flex-shrink: 0; }
+        .c-content h5 { margin: 0 0 5px 0; color: var(--primary); }
+        .c-content p { margin: 0; font-size: 0.95rem; }
+        .c-meta { font-size: 0.75rem; color: #666; margin-top: 5px; }
 
-        .side-news {
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: #252525;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            z-index: 1000;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid var(--primary);
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        .news-item {
-            background-color: var(--card-bg);
-            padding: 15px;
-            border-radius: 4px;
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .news-item:hover { transform: translateY(-3px); }
-
-        .news-item h4 {
-            margin: 0 0 10px 0;
-            font-size: 1rem;
-        }
-
-        .news-item .tag {
-            font-size: 0.75rem;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0f0f0f;
-            text-align: center;
-            padding: 40px 0;
-            margin-top: 50px;
-            border-top: 1px solid #333;
-            color: #666;
-            font-size: 0.8rem;
-        }
+        .cookie-btn { background: #fff; color: #000; border: none; padding: 10px 25px; border-radius: 20px; font-weight: bold; cursor: pointer; }
 
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; }
-            .hero-image { height: 250px; }
+            #cookie-banner { flex-direction: column; text-align: center; gap: 15px; }
             article h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
+<div class="top-bar">Trend: #SaveApex &nbsp;&bull;&nbsp; GTA VI &nbsp;&bull;&nbsp; PS5 Pro &nbsp;&bull;&nbsp; Switch 2</div>
+
 <header>
     <div class="nav-container">
         <div class="logo">GAMER<span>INSIDER</span></div>
-        <nav>
-            <a href="#">News</a>
-            <a href="#">Recensioni</a>
-            <a href="#">Hardware</a>
-            <a href="#">Esports</a>
-        </nav>
+        <div class="user-icon">👤</div>
     </div>
 </header>
 
 <div class="container">
     <main>
-        <article>
-            <span class="breaking-tag">ULTIM'ORA</span>
-            <h1>Shock per i fan: EA annuncia la chiusura definitiva dei server di Apex Legends</h1>
-            
-            <div class="meta">
-                <span>Di <strong>Marco Vallesi</strong></span>
-                <span>16 Gennaio 2026 - 18:45</span>
+        <div class="breadcrumbs">HOME / NEWS / BATTLE ROYALE</div>
+        
+        <h1>UFFICIALE: EA stacca la spina. I server di Apex Legends chiuderanno a Febbraio</h1>
+        <p class="subtitle">Il comunicato shock di Respawn Entertainment conferma i rumor: il battle royale chiude definitivamente. Azioni EA in calo del 4% nel pre-market.</p>
+
+        <div class="author-block">
+            <div class="author-img" style="background: url('https://ui-avatars.com/api/?name=Marco+V&background=random') center/cover;"></div>
+            <div class="author-info">
+                <div>Marco Vallesi</div>
+                <div>Caporedattore News &bull; 16 Gennaio 2026</div>
+            </div>
+            <div style="margin-left: auto; font-size: 0.8rem; color: #666;">3 min di lettura</div>
+        </div>
+
+        <div class="panic-box">
+            <span style="font-size: 1.5rem;">⚠️</span>
+            <div>
+                ATTENZIONE: Il nostro sistema ha rilevato che il tuo account è idoneo per il "Legacy Badge". 
+                <a href="#" style="color: #ff4444; text-decoration: underline; cursor: pointer;">Riscatta prima della chiusura.</a>
+            </div>
+        </div>
+
+        <div class="share-bar">
+            <button class="share-btn bg-fb">Condividi</button>
+            <button class="share-btn bg-tw">X / Tweet</button>
+            <button class="share-btn bg-wa">WhatsApp</button>
+        </div>
+
+        <!-- BLOCCO IMMAGINE ERRORE -->
+        <div class="featured-image-container">
+            <div style="position: relative;">
+                <img src="apex-error.jpg" alt="Apex Legends Error Screen" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333;">
+                <span style="position: absolute; top: 15px; left: 15px; background: #ff0055; color: white; padding: 5px 10px; font-weight: bold; font-size: 0.8rem; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.5);">ESCLUSIVA</span>
+            </div>
+            <figcaption style="color: #a0a0a0; font-size: 0.9rem; margin-top: 12px; border-left: 3px solid var(--primary); padding-left: 12px; line-height: 1.4;">
+                <strong>FOTO:</strong> Uno screenshot inviato in redazione da un utente (<em>@PartyLeaderQuit</em>) mostra il messaggio "Server shutting down" apparso pochi minuti fa nella lobby pre-partita.
+            </figcaption>
+        </div>
+
+        <div class="content">
+            <p><strong>REDWOOD CITY</strong> – La notizia che nessun fan voleva leggere è arrivata pochi minuti fa. Con un post lapidario sul blog ufficiale, Electronic Arts e Respawn Entertainment hanno annunciato la cessazione totale del supporto e lo spegnimento dei server per <em>Apex Legends</em>.</p>
+
+            <div class="update-box">
+                <h4>🔴 Aggiornamento 18:30</h4>
+                <p style="margin-bottom:0; font-size: 0.95rem;">Il Game Director ha confermato su X che <strong>non sono previsti rimborsi</strong> per le Monete Apex acquistate negli ultimi 90 giorni. La community sta organizzando un boicottaggio di massa.</p>
             </div>
 
-            <div class="hero-image">
-                <!-- Immagine simulata con CSS -->
-                <div style="text-align: center;">
-                    <h2 style="color: white; text-shadow: 0 2px 10px black;">APEX LEGENDS</h2>
-                    <p style="color: #ff0055; font-weight: bold; letter-spacing: 2px;">END OF SERVICE</p>
+            <p>La data segnata in rosso sul calendario è il <strong>28 Febbraio 2026</strong>. Alle ore 09:00 PST, i server andranno offline su tutte le piattaforme. La decisione, definita "strategica e necessaria" dal CEO Andrew Wilson, arriva a seguito di un report finanziario che ha evidenziato un calo del 60% dei giocatori attivi rispetto al 2024.</p>
+
+            <p>"Siamo incredibilmente fieri di ciò che abbiamo costruito," recita il comunicato. "Ma le risorse necessarie per mantenere l'infrastruttura live-service non sono più giustificabili. Il team verrà riassegnato immediatamente allo sviluppo di <em>Titanfall 3</em> e del nuovo franchise Star Wars."</p>
+
+            <h3>Cosa succede ora al mio account?</h3>
+            <p>Purtroppo, nulla. Le skin, gli eredi (Heirlooms) e i progressi svaniranno insieme ai server. EA ha promesso un "Pacchetto Fedeltà" per chi acquisterà il prossimo titolo Respawn, ma i dettagli sono vaghi. Fino al 28 febbraio, tutti i personaggi saranno sbloccati gratuitamente per l'evento d'addio "The Final Ring".</p>
+        </div>
+
+        <!-- Fake Comments Section -->
+        <div class="comments-section">
+            <div class="comments-header">
+                <h3>💬 142 Commenti</h3>
+            </div>
+
+            <div class="comment">
+                <div class="avatar" style="background: #a33;"></div>
+                <div class="c-content">
+                    <h5>WraithMain_99</h5>
+                    <p>NON CI POSSO CREDERE. Ho speso 150 euro per l'evento di Natale il mese scorso! È legale questa cosa?? EA ladri!</p>
+                    <div class="c-meta">👍 456 &bull; Rispondi &bull; 15 min fa</div>
                 </div>
             </div>
 
-            <div class="content">
-                <p><strong>REDWOOD CITY</strong> – È una notizia che nessuno si aspettava, ma che circolava come rumor negli ambienti interni di EA da diverse settimane. Electronic Arts e Respawn Entertainment hanno rilasciato pochi minuti fa un comunicato congiunto che segna la fine di un'era per il genere Battle Royale.</p>
-
-                <p>A partire dalla fine del prossimo mese, i server di <strong>Apex Legends verranno spenti permanentemente</strong> su tutte le piattaforme (PC, PlayStation 5, Xbox Series X/S e Nintendo Switch).</p>
-
-                <div class="highlight-box">
-                    <h3>📅 La data dello spegnimento</h3>
-                    <p>Il comunicato ufficiale fissa la data: <strong>28 Febbraio 2026, ore 09:00 PST</strong>. Dopo questo orario, non sarà più possibile effettuare il login, e tutti gli acquisti in-game (Skin, Monete Apex) non saranno rimborsabili, come previsto dai termini di servizio aggiornati lo scorso anno.</p>
+            <div class="comment">
+                <div class="avatar" style="background: #33a;"></div>
+                <div class="c-content">
+                    <h5>PathfinderLover</h5>
+                    <p>Era ovvio ragazzi, le lobby erano piene di bot da mesi. Triste vedere la fine così, ma se serve per avere Titanfall 3... forse ne vale la pena.</p>
+                    <div class="c-meta">👍 89 &bull; Rispondi &bull; 42 min fa</div>
                 </div>
-
-                <p>"È stata una decisione incredibilmente difficile," ha dichiarato Andrew Wilson, CEO di Electronic Arts. "Apex Legends è stato un pilastro per noi, ma il calo fisiologico dell'utenza e la necessità di spostare tutte le risorse di Respawn sullo sviluppo del prossimo <em>Titanfall</em> e del nuovo gioco open-world di <em>Star Wars</em> ci hanno costretto a questa scelta drastica."</p>
-
-                <p>La notizia ha già scatenato il panico sui social, con l'hashtag <strong>#SaveApex</strong> che è entrato in tendenza mondiale su X (ex Twitter) in meno di dieci minuti. Tuttavia, fonti interne confermano che la decisione è "irreversibile" e legata ai costi di mantenimento dell'infrastruttura server, giudicati non più sostenibili rispetto agli introiti attuali.</p>
-
-                <p>I giocatori avranno quindi poco più di un mese per salutare le loro Leggende preferite a Kings Canyon. Un evento finale in-game, chiamato "The Last Circle", è previsto per il weekend del 27 febbraio.</p>
             </div>
-        </article>
+
+            <div class="comment">
+                <div class="avatar" style="background: #3a3;"></div>
+                <div class="c-content">
+                    <h5>LucaThePro</h5>
+                    <p>Ho appena disinstallato. Se chiudono i server tra un mese non ha senso continuare a grindare il rank. Addio Apex.</p>
+                    <div class="c-meta">👍 212 &bull; Rispondi &bull; 1 ora fa</div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <aside class="sidebar">
-        <h3>Altre Notizie</h3>
-        
-        <div class="side-news">
-            <div class="news-item">
-                <span class="tag">RUMOR</span>
-                <h4>GTA VI: Un leak svela la durata della campagna principale?</h4>
-                <p style="font-size: 0.85rem; color: #a0a0a0; margin-top: 5px;">I file trapelati suggeriscono oltre 80 ore di gioco.</p>
+        <!-- PUBBLICITA VPN -->
+        <div class="ad-space" style="height: 250px; background: white; border: none; cursor: pointer; position: relative; overflow: hidden; margin-bottom: 30px;">
+            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                <h3 style="color: #ff0055; background: black; display: inline-block; padding: 5px; margin: 0;">GAMING VPN</h3>
+                <p style="color: black; font-weight: 900; font-size: 1.5rem; text-shadow: 1px 1px 0px white; margin: 5px 0;">PING 0ms</p>
+                <button style="background: #ff0055; color: white; border: none; padding: 5px 15px; font-weight: bold; cursor: pointer;">SCARICA ORA</button>
             </div>
-
-            <div class="news-item">
-                <span class="tag">HARDWARE</span>
-                <h4>Nintendo Switch 2: Annuncio previsto per Marzo?</h4>
-                <p style="font-size: 0.85rem; color: #a0a0a0; margin-top: 5px;">Gli analisti sono sicuri: la nuova console è pronta.</p>
-            </div>
-
-            <div class="news-item">
-                <span class="tag">UPDATE</span>
-                <h4>Elden Ring: FromSoftware al lavoro su un nuovo misterioso progetto</h4>
-                <p style="font-size: 0.85rem; color: #a0a0a0; margin-top: 5px;">Miyazaki accenna a un ritorno alle origini sci-fi.</p>
-            </div>
-
-            <div class="news-item">
-                <span class="tag">CINEMA</span>
-                <h4>La serie TV di God of War ha trovato il suo Kratos?</h4>
-                <p style="font-size: 0.85rem; color: #a0a0a0; margin-top: 5px;">Amazon Studios in trattativa con un attore di Hollywood.</p>
-            </div>
+            <span style="position: absolute; top: 0; right: 0; background: #ddd; color: #555; font-size: 0.6rem; padding: 2px 4px;">Annuncio</span>
         </div>
         
-        <div style="margin-top: 30px; background: #222; padding: 20px; text-align: center; border: 1px dashed #444;">
-            <p style="color: #fff; font-weight: bold;">ISCRIVITI ALLA NEWSLETTER</p>
-            <input type="text" placeholder="La tua email" style="width: 80%; padding: 10px; margin-top: 10px; border: none; border-radius: 4px;">
-            <button style="width: 90%; margin-top: 10px; padding: 10px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer;">ISCRIVITI</button>
+        <h3 style="border-bottom: 2px solid var(--primary); padding-bottom: 10px;">I più letti oggi</h3>
+        <ul class="trending-list">
+            <li>
+                <span class="number">1</span>
+                <a href="#">Apex Legends: Server offline dal 28 Febbraio, è ufficiale</a>
+            </li>
+            <li>
+                <span class="number">2</span>
+                <a href="#">Recensione GTA VI: Il capolavoro che aspettavamo</a>
+            </li>
+            <li>
+                <span class="number">3</span>
+                <a href="#">PS5 Pro: Vale la pena l'upgrade? La nostra analisi</a>
+            </li>
+            <li>
+                <span class="number">4</span>
+                <a href="#">Steam Deck 2 annunciata a sorpresa</a>
+            </li>
+            <li>
+                <span class="number">5</span>
+                <a href="#">Offerte Weekend: Sconti fino all'80% su Steam</a>
+            </li>
+        </ul>
+
+        <!-- PUBBLICITA PS5 PRO -->
+        <div class="ad-space" style="height: 400px; background: #00469b; border: none; display: flex; flex-direction: column; justify-content: center; position: relative; margin-top: 30px;">
+            <div style="text-align: center; color: white; z-index: 2;">
+                <p style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 5px;">OFFERTA DEL GIORNO</p>
+                <h2 style="font-size: 2.5rem; margin: 0; font-weight: 900; color: #ffcc00;">PS5 PRO</h2>
+                <p style="font-size: 1.2rem;">DISPONIBILE ORA</p>
+                <img src="https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$" style="width: 180px; margin: 10px auto; display: block;">
+                <div style="background: white; color: #00469b; padding: 10px; font-weight: bold; width: 60%; margin: 0 auto; border-radius: 4px; cursor: pointer;">ACQUISTA A €799</div>
+            </div>
         </div>
     </aside>
 </div>
 
-<footer>
-    <p>&copy; 2026 GamerInsider Network. Tutti i diritti riservati.</p>
-    <p>Privacy Policy | Cookie Policy | Contatti | Lavora con noi</p>
-    <p style="font-size: 0.7rem; color: #333; margin-top: 20px;">GamerInsider is not affiliated with Electronic Arts or Respawn Entertainment.</p>
-</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner">
+    <div style="max-width: 600px;">
+        <strong>🍪 Informativa sulla Privacy</strong><br>
+        <span style="font-size: 0.85rem; color: #ccc;">Utilizziamo cookie proprietari e di terze parti per migliorare la tua esperienza e mostrarti pubblicità personalizzata basata sulla tua navigazione. Continuando accetti i nostri Termini.</span>
+    </div>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'">ACCETTA TUTTO</button>
+</div>
 
 </body>
 </html>
